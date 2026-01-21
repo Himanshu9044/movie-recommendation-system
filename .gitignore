@@ -1,0 +1,10 @@
+# Large data & models
+data/
+models/
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+.env
