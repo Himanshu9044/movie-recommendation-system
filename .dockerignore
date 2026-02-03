@@ -1,10 +1,2 @@
-__pycache__/
-*.pyc
-*.pkl
-data/
-training/
-api/
-.git/
-.gitignore
-.env
+
 

@@ -4,7 +4,11 @@ WORKDIR /app
 
 # Copy requirements
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt \
+    --trusted-host pypi.org \
+    --trusted-host files.pythonhosted.org \
+    --default-timeout=100 \
+    -i https://pypi.org/simple
 
 # Copy code
 COPY app.py .
@@ -17,6 +21,7 @@ RUN python training/train_recommender.py
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
 
 
